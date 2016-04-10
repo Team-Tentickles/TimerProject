@@ -1,3 +1,15 @@
+# Stuff specific to this project
+bin/*
+!bin/data/
+
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
