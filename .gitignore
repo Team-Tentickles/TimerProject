@@ -57,3 +57,29 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#ignore thumbnails created by windows
+#Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*

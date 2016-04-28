@@ -19,10 +19,16 @@ class ofApp : public ofBaseApp{
 		ofImage peakartist;
 		//---for the timer
 		float ellapsedTime;
+		int opac;
+		int totalfadetime; //--in millisec
 
 		void setup();
 		void update();
 		void draw();
+		void fadeImage(int tt, ofImage imgname, int imgx, int imgy);
+
+
+
 
 		void keyPressed(int key);
 		void keyReleased(int key);

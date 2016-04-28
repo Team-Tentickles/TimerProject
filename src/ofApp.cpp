@@ -1,4 +1,4 @@
-#include "ofApp.h"
+#include "ofApp.h" 
  
 //--------------------------------------------------------------
 void ofApp::setup()
@@ -14,6 +14,9 @@ void ofApp::setup()
 	artist1img5.load("images/img8.jpg");
 	artist2img5.load("images/img9.jpg");
 	peakartist.load("images/img10.jpg");
+
+	opac = 0;
+	totalfadetime = 1000;
 }
 
 //--------------------------------------------------------------
@@ -25,48 +28,33 @@ void ofApp::update(){
 void ofApp::draw()
 {
 	ellapsedTime = ofGetElapsedTimeMillis();
-	//cout << ellapsedTime << endl;
+	
+	fadeImage(2000, artist1img1, 160, 560);
+	fadeImage(5500, artist2img1, 400, 560);
+	fadeImage(9000, artist1img2, 640, 560);
+	fadeImage(12500, artist2img2, 100, 375);
+	fadeImage(16000, artist1img3, 315, 375);
+	fadeImage(19500, artist2img3, 530, 375);
+	fadeImage(23000, artist1img4, 747, 375);
+	fadeImage(26500, artist2img4, 160, 200);
+	fadeImage(30000, artist1img5, 400, 200);
+	fadeImage(33500, artist2img5, 640, 200);
+	fadeImage(37000, peakartist, 400, 45);
+}
 
-	artist1img1.draw(160,560);
-	if(ellapsedTime >= 4500)
+void ofApp::fadeImage(int tt, ofImage imgname, int imgx, int imgy)
+{
+	if (ellapsedTime >= tt && ellapsedTime <= tt + totalfadetime)
 	{
-		artist2img1.draw(400, 560);
+		opac = floor(255 * ((ellapsedTime - tt) / totalfadetime));
+		ofSetColor(255, 255, 255, opac);
+		imgname.draw(imgx, imgy);
 	}
-	if (ellapsedTime >= 9500)
+	if (ellapsedTime >= tt + totalfadetime)
 	{
-		artist1img2.draw(640, 560);
-	}
-	if (ellapsedTime >= 14000)
-	{
-		artist2img2.draw(100, 375);
-	}
-	if (ellapsedTime >= 18500)
-	{
-		artist1img3.draw(315, 375);
-	}
-	if (ellapsedTime >= 23000)
-	{
-		artist2img3.draw(530, 375);
-	}
-	if (ellapsedTime >= 27500)
-	{
-		artist1img4.draw(745, 375);
-	}
-	if (ellapsedTime >= 32000)
-	{
-		artist2img4.draw(160, 200);
-	}
-	if (ellapsedTime >= 36500)
-	{
-		artist1img5.draw(400, 200);
-	}
-	if (ellapsedTime >= 41000)
-	{
-		artist2img5.draw(640, 200);
-	}
-	if (ellapsedTime >= 45500)
-	{
-		peakartist.draw(400, 45);
+		ofSetColor(255, 255, 255, 255);
+		imgname.draw(imgx, imgy);
+		opac = 0;
 	}
 }
 
