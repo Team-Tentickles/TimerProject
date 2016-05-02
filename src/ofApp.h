@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "FadeImage.h"
 
 class ofApp : public ofBaseApp{
 
@@ -19,13 +20,15 @@ class ofApp : public ofBaseApp{
 		ofImage peakartist;
 		//---for the timer
 		float ellapsedTime;
-		int opac;
-		int totalfadetime; //--in millisec
+		int totalfadetime; 
+
+
+		int maxx;//---temp
 
 		void setup();
 		void update();
 		void draw();
-		void fadeImage(int tt, ofImage imgname, int imgx, int imgy);
+		void fadeImage(int tt, ofImage imgname, int startX, int startY, int maxWidth, int maxHeight, int startSubX, int startSubY, int maxSubWidth, int maxSubHeight);
 
 
 
